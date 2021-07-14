@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_layout"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Add Schedule"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+
+        <com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+            android:id="@+id/select_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:picker_curved="true"
+            app:picker_cyclic="true"
+            app:picker_displayDays="false"
+            app:picker_displayDaysOfMonth="false"
+            app:picker_displayMonth="false"
+            app:picker_displayMonthNumbers="false"
+            app:picker_selectedTextColor="@color/colorPrimaryDark"
+            app:picker_selectorColor="@color/light_blue"
+            app:picker_textColor="@color/light_blue"
+            app:picker_visibleItemCount="2" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/lightGrey" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/open_sans_semibold">
+
+            <EditText
+                android:id="@+id/edit_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/open_sans_semibold"
+                android:hint="Activity or meal"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:maxLines="5"
+                android:minLines="3"
+                android:scrollbars="vertical"
+                android:selectAllOnFocus="true"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="cancel"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:backgroundTint="@android:color/transparent"
+            app:rippleColor="@color/white"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="1.5dp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="add"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:rippleColor="@color/white"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="1.5dp" />
+    </LinearLayout>
+</LinearLayout>

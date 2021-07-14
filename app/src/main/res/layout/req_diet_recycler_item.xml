@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="response"
+            type="com.example.fitness.network.responses.LoginResponse" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+                android:id="@+id/select_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:picker_curved="true"
+                android:paddingLeft="-18dp"
+                android:soundEffectsEnabled="true"
+                app:picker_cyclic="true"
+                app:picker_displayDays="false"
+                app:picker_displayDaysOfMonth="false"
+                app:picker_displayMonth="false"
+                app:picker_displayMonthNumbers="false"
+                app:picker_selectedTextColor="@color/colorPrimaryDark"
+                app:picker_selectorColor="@color/light_blue"
+                app:picker_textColor="@color/light_blue"
+                app:picker_visibleItemCount="2" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/lightGrey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textinput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_semibold">
+
+                    <EditText
+                        android:id="@+id/edit_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:enabled="false"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:hint="Activity or meal"
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:maxLines="5"
+                        android:minLines="3"
+                        android:scrollbars="vertical"
+                        android:selectAllOnFocus="true"
+                        android:text="@{response.schedule_desc}"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <ImageView
+                    android:id="@+id/img_options"
+                    android:layout_width="25dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_menu" />
+
+                <ImageView
+                    android:id="@+id/img_done"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignBottom="@+id/textinput"
+                    android:layout_alignParentRight="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_baseline_send_24"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

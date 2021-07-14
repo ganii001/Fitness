@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.fitness.ui.req_diet_plan.ReqDietPlanViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.req_diet_plan.ReqDietActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="Request For Diet Plan"
+                app:titleTextAppearance="@style/toolbar_text" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:visibility="@{viewModel.isVisibleLable()}">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:gravity="center"
+                android:text="@string/add_your_daily_schedule"
+                android:textColor="@color/colorPrimary" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/open_sans_semibold"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="ADD"
+                android:textColor="@color/colorPrimary"
+                app:cornerRadius="5dp" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_diet_records"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appbar"
+            android:layout_margin="10dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fab_send"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="3dp"
+            app:fabSize="mini"
+            app:maxImageSize="30dp"
+            app:rippleColor="@color/white"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="35dp"
+            android:src="@drawable/ic_baseline_send_24"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="3dp"
+            app:enabled="@{viewModel.isEnable()}"
+            app:maxImageSize="30dp"
+            app:rippleColor="@color/white"
+            app:tint="@color/white"
+            app:visibility="@{viewModel.isVisible()}" />
+    </RelativeLayout>
+</layout>
